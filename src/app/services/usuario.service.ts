@@ -9,7 +9,7 @@ export class UsuarioService {
       new Usuario('Pedro Crespo', 'pedro-crespo@zgsolucoes.com.br', new Date(), '12345678')
   ];
 
-  usuarioLogado: Usuario;
+  private usuarioLogado: Usuario;
 
   constructor() { }
 
@@ -28,5 +28,17 @@ export class UsuarioService {
     }
 
     return usuarioValido !== undefined;
+  }
+
+  existeUsuarioAutenticado(): boolean {
+    return this.usuarioLogado !== undefined;
+  }
+
+  getNomeUsuarioLogado(): string {
+    return this.usuarioLogado.nome;
+  }
+
+  realizarLogout(): void {
+    this.usuarioLogado = undefined;
   }
 }
