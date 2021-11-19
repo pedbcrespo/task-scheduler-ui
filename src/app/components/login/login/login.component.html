@@ -1,0 +1,58 @@
+<div class="login" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="login-box">
+        <mat-card-header>
+            <mat-card-title>Log in</mat-card-title>
+        </mat-card-header>
+
+        <form class="example-form" [formGroup]="formularioLogin" (ngSubmit)="onSubmit()">
+            <mat-card-content>
+                <mat-form-field class="example-full-width">
+                    <mat-label>E-mail</mat-label>
+                    <input
+                        matInput
+                        [formControl]="emailFormControl"
+                        (input)="onDigitarAlgo()"
+                        placeholder="Ex: exemplo@email.com"
+                        required>
+
+                    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                        Email invalido
+                    </mat-error>
+
+                    <mat-error *ngIf="emailFormControl.hasError('required')">
+                        Email obrigatorio
+                    </mat-error>
+
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>Senha</mat-label>
+                    <input matInput
+                            [formControl]="senhaFormControl"
+                            (input)="onDigitarAlgo()"
+                            [type]="esconderSenha? 'password' : 'text'"
+                            required>
+
+                    <mat-error *ngIf="senhaFormControl.hasError('required')">
+                        Campo obrigatorio
+                    </mat-error>
+                    <mat-icon matSuffix (click)="esconderSenha = !esconderSenha">{{esconderSenha ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </mat-form-field>
+                <br/>
+                <mat-error *ngIf="mensagemErro">
+                    {{mensagemErro}}
+                </mat-error>
+            </mat-card-content>
+
+            <button
+                mat-raised-button
+                color="primary"
+                class="btn-block"
+                [disabled]="!formularioLogin.valid"
+            >
+                Log in
+            </button>
+        </form>
+
+    </mat-card>
+</div>
