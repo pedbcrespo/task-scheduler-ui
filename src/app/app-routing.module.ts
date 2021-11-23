@@ -8,6 +8,7 @@ import {ExecutavelEdicaoComponent} from './components/executavel/executavel-edic
 import {ExecucaoComponent} from './components/execucao/execucao.component';
 import {ExecucaoInicioComponent} from './components/execucao/execucao-inicio/execucao-inicio.component';
 import {ExecucaoDetalhesComponent} from './components/execucao/execucao-detalhes/execucao-detalhes.component';
+import {AgendamentosComponent} from './components/agendamentos/agendamentos.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -29,7 +30,8 @@ const routes: Routes = [
       {path: '', component: ExecucaoInicioComponent, pathMatch: 'full'},
       {path: ':id/detalhe', component: ExecucaoDetalhesComponent},
     ]
-  }
+  },
+  {path: 'agendamentos', component: AgendamentosComponent}
 ];
 
 @NgModule({

@@ -20,6 +20,7 @@ import { ExecucaoComponent } from './components/execucao/execucao.component';
 import { ExecucaoListaComponent } from './components/execucao/execucao-lista/execucao-lista.component';
 import { ExecucaoDetalhesComponent } from './components/execucao/execucao-detalhes/execucao-detalhes.component';
 import { ExecucaoInicioComponent } from './components/execucao/execucao-inicio/execucao-inicio.component';
+import { AgendamentosComponent } from './components/agendamentos/agendamentos.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ExecucaoInicioComponent } from './components/execucao/execucao-inicio/e
     ExecucaoComponent,
     ExecucaoListaComponent,
     ExecucaoDetalhesComponent,
-    ExecucaoInicioComponent
+    ExecucaoInicioComponent,
+    AgendamentosComponent
   ],
   imports: [
       CommonModule,
