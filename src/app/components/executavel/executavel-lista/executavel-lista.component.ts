@@ -3,6 +3,7 @@ import {Executavel} from '../../../models/executavel.model';
 import {ExecutavelService} from '../../../services/executavel.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
+import {ExecucaoService} from '../../../services/execucao.service';
 
 @Component({
   selector: 'app-executavel-lista',
@@ -14,6 +15,7 @@ export class ExecutavelListaComponent implements OnInit {
   subscricao: Subscription;
 
   constructor(private executavelService: ExecutavelService,
+              private execucaoService: ExecucaoService,
               private activateRoute: ActivatedRoute,
               private router: Router) {}
 
@@ -38,6 +40,12 @@ export class ExecutavelListaComponent implements OnInit {
     this.router.navigate([execucatavel.id, 'edicao'], {relativeTo: this.activateRoute});
   }
 
+  onDispararExecucao(executavel: Executavel): void {
+    if (confirm('Deseja iniciar ' + executavel.titulo + '?')){
+      this.execucaoService.criarNovaExecucao(executavel);
+      this.router.navigate(['execucoes']);
+    }
+  }
   onRemoverExecutavel(executavel: Executavel): void {
     if (confirm('Deseja realmente remover ' + executavel.titulo + '?')){
       this.executavelService.removerExecutavel(executavel.id);
