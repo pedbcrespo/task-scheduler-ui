@@ -5,6 +5,9 @@ import {LoginComponent} from './components/login/login/login.component';
 import {ExecutavelComponent} from './components/executavel/executavel.component';
 import {ExecutavelInicioComponent} from './components/executavel/executavel-inicio/executavel-inicio.component';
 import {ExecutavelEdicaoComponent} from './components/executavel/executavel-edicao/executavel-edicao.component';
+import {ExecucaoComponent} from './components/execucao/execucao.component';
+import {ExecucaoInicioComponent} from './components/execucao/execucao-inicio/execucao-inicio.component';
+import {ExecucaoDetalhesComponent} from './components/execucao/execucao-detalhes/execucao-detalhes.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -17,6 +20,14 @@ const routes: Routes = [
       {path: '', component: ExecutavelInicioComponent, pathMatch: 'full'},
       {path: 'nova', component: ExecutavelEdicaoComponent},
       {path: ':id/edicao', component: ExecutavelEdicaoComponent},
+    ]
+  },
+  {
+    path: 'execucoes',
+    component: ExecucaoComponent,
+    children: [
+      {path: '', component: ExecucaoInicioComponent, pathMatch: 'full'},
+      {path: ':id/detalhe', component: ExecucaoDetalhesComponent},
     ]
   }
 ];

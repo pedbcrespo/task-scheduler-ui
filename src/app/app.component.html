@@ -28,7 +28,16 @@
            routerLink="/executaveis">
           Executaveis
         </a>
-
+        <a mat-button
+           *ngIf="existeUsuarioAutenticado()"
+           routerLink="/execucoes">
+          Execuções
+        </a>
+        <a mat-button
+           *ngIf="existeUsuarioAutenticado()"
+           routerLink="/agendamentos">
+          Agendamentos
+        </a>
         <a mat-button
            *ngIf="existeUsuarioAutenticado()"
            (click)="realizarLogout()"
